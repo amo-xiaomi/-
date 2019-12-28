@@ -16,7 +16,7 @@
 		<result column="user_name" property="name"/>
 		<result column="user_password" property="password"/>
 		<result column="user_phone" property="phone"/>
-		<result column="user_addr" property="password"/>
+		<result column="user_addr" property="addr"/>
 		<result column="user_register_date" property="rdate"/>
 	
 	</resultMap>
@@ -31,4 +31,10 @@
 	   delete from t_user where id=#{id}
 	 </delete>
 	 
+	 <!-- 重置用户密码 -->
+	 <update id="resetPassword" parameterType="int">
+	      update t_user set user_password=md5('000000') where id=#{id}
+
+
+	 </update>
 </mapper>

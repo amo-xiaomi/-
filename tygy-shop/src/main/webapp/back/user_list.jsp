@@ -75,16 +75,24 @@
 												<span class="caret"></span>
 											</button>
 											<ul class="dropdown-menu">
-												<li><a href="#">编辑用户名</a> <a href="#">修改</a> <a
+												<li><a href="javascript:;" onclick="resetPassword(${user.id})">重置密码</a>  <a
 													 href="javascript:;" onclick="deleteUser(${user.id})">删除</a></li>
 													
 											</ul>
 											<script type="text/javascript">
+											$("#mmm".click())
 											function deleteUser(id){
 												if (confirm("你确定要删除吗")){
-													if(confirm("你真的要删除么，删除就真没了！")){
+													if(confirm("你真的要删除吗，删除就真没了！")){
 														window.location.href = "delete.user?id=" + id;
 													}
+												} 
+											}
+											function resetPassword(id){
+												if (confirm("你确定要重置密码吗？")){
+													
+														window.location.href = "resetPassword.user?id=" + id;
+													
 												} 
 											}
 											</script>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.shop.mapper.CategoryMapper">
+	<!-- 查询所有t_category表中的数据 -->
+	<select id="findAll" resultMap="findAll">
+		select
+		id,category_name,category_description,category_parentid,leaf,grade
+		from t_category
+	</select>
+
+	<!--配置数据表中的字段名和Admin类中成员变量要一致 -->
+	<resultMap type="Category" id="findAll">
+		<id column="id" property="id" />
+		<result column="category_name" property="name" />
+		<result column="category_description" property="descr" />
+		<result column="category_parentid" property="pid" />
+		<result column="leaf" property="leaf" />
+		<result column="grade" property="grade" />
+	</resultMap>
+</mapper>

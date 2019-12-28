@@ -38,4 +38,10 @@ public class UserController {
 		service.delete(id);
 		return "redirect:findAll.user";
 	}
+	@RequestMapping("/back/resetPassword.user")
+	public String  resetPassword(Integer id) {
+		service.resetPassword(id);
+		return "redirect:findAll.user";
+		
+	}
 }

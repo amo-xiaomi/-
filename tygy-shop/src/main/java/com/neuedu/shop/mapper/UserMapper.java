@@ -19,5 +19,8 @@ public interface UserMapper {
 	 */
 	void delete(Integer id);
 	
-	
+/**
+ * 重置用户密码
+ */
+	void resetPassword(Integer id);
 }

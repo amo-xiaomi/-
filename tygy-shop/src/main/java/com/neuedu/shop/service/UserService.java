@@ -11,4 +11,6 @@ public interface UserService {
 	void insert(User user);
 
 	void delete(Integer id);
+
+	void resetPassword(Integer id);
 }
