@@ -1,5 +1,6 @@
-<%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8" isELIgnored="false"%>
-<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8"
+	isELIgnored="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,16 @@
 <script src="js/fullcalendar.min.js"></script>
 <script src="js/gcal.js"></script>
 <script src="js/setup.js"></script>
-</head>
+<!-- <script type="text/javascript">
+		$(function(){
+			var uid = $("#uid").val();
+		$("#deleteUser"+uid).click(function(){
+			//业务
+		    //给出提示框
+
+	});
+});
+</script> -->
 <body>
 <%@include file="header.jsp" %>
 	<div class="page">
@@ -35,9 +45,11 @@
 					<div class="span12">
 						<a href="#newUserModal" data-toggle="modal" class="btn pull-right">添加用户</a>
 						<h4 class="header">用户列表</h4>
+						<button  class="btn btn-primary">批量删除</button>
 						<table class="table table-striped sortable">
 							<thead>
 								<tr>
+								<th><th/>
 									<th>用户ID</th>
 									<th>用户名</th>
 									<th>密码</th>
@@ -49,6 +61,7 @@
 							<tbody>
 							<c:forEach items="${users }" var="user">
 								<tr>
+								<th><input type="checkbox" name=""><th/>
 									<td>${user.id}</td>
 									<td>${user.name }</td>
 									<td>${user.password }</td>
@@ -63,61 +76,70 @@
 											</button>
 											<ul class="dropdown-menu">
 												<li><a href="#">编辑用户名</a> <a href="#">修改</a> <a
-													href="delete.user?id=${user.id }">删除</a></li>
+													 href="javascript:;" onclick="deleteUser(${user.id})">删除</a></li>
+													
 											</ul>
-										</div>
-									</td>
-								</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-						<div class="pagination pagination-centered">
-							<ul>
-								<li class="disabled"><a href="#">&laquo;</a></li>
-								<li class="active"><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&raquo;</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="newUserModal" class="modal hide fade">
-				<div class="modal-header">
-					<button type="button" data-dismiss="modal" aria-hidden="true"
-						class="close">&times;</button>
-					<h3>新建用户</h3>
-				</div>
-				<div class="modal-body">
-					<form class="form-horizontal" action="add.do" method="post" />
-					<div class="control-group">
-						<label for="inputEmail" class="control-label">用户名</label>
-						<div class="controls">
-							<input id="inputEmail" type="text" placeholder="请输入用户名" />
-						</div>
-					</div>
-					<div class="control-group">
-						<label for="inputCurrentPassword" class="control-label">密码
-						</label>
-						<div class="controls">
-							<input id="inputCurrentPassword" type="password"
-								placeholder="请输入密码" />
-						</div>
-					</div>
-					<div class="modal-footer">
-						<a href="#" data-dismiss="modal" class="btn">关闭</a><input
-							type="submit" data-dismiss="modal" class="btn btn-primary"
-							value="添加用户" />
-					</div>
-				</div>
-				</form>
+											<script type="text/javascript">
+											function deleteUser(id){
+												if (confirm("你确定要删除吗")){
+													if(confirm("你真的要删除么，删除就真没了！")){
+														window.location.href = "delete.user?id=" + id;
+													}
+												} 
+											}
+											</script>
+							
+</div>
+</td>
+</tr>
+</c:forEach>
+</tbody>
+</table>
+<div class="pagination pagination-centered">
+	<ul>
+		<li class="disabled"><a href="#">&laquo;</a></li>
+		<li class="active"><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#">&raquo;</a></li>
+	</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="newUserModal" class="modal hide fade">
+	<div class="modal-header">
+		<button type="button" data-dismiss="modal" aria-hidden="true"
+			class="close">&times;</button>
+		<h3>新建用户</h3>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal" action="add.do" method="post" />
+		<div class="control-group">
+			<label for="inputEmail" class="control-label">用户名</label>
+			<div class="controls">
+				<input id="inputEmail" type="text" placeholder="请输入用户名" />
 			</div>
 		</div>
+		<div class="control-group">
+			<label for="inputCurrentPassword" class="control-label">密码 </label>
+			<div class="controls">
+				<input id="inputCurrentPassword" type="password" placeholder="请输入密码" />
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="#" data-dismiss="modal" class="btn">关闭</a><input
+				type="submit" data-dismiss="modal" class="btn btn-primary"
+				value="添加用户" />
+		</div>
 	</div>
-<%@include file="footer.jsp" %>
+	</form>
+</div>
+</div>
+</div>
+<%@include file="footer.jsp"%>
 </body>
 <script src="js/d3-setup.js"></script>
 <script>
