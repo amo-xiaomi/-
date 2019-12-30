@@ -1,9 +1,7 @@
 <%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8"
 	isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-   String path = request.getContextPath();
-%>
+<!--Header Block-->
 <div class="header-wrapper">
 	<header class="container">
 		<div class="head-right">
@@ -12,8 +10,7 @@
 				<li class="my-wishlist"><a href="404_error.html" title="我的收藏">我的收藏</a></li>
 				<li class="contact-us"><a href="contact_us.html" title="联系我们">联系我们</a></li>
 				<li class="checkout"><a href="404_error.html" title="付款">付款</a></li>
-				<li class="log-in"><a href="login.html" title="登录">登录</a></li>
-				<li class="log-in"><a href="<%=path %>/back/index.jsp" title="后台首页">后台首页</a></li>
+				<li class="log-in"><a href="../back/index.jsp" title="后台首页">后台首页</a></li>
 			</ul>
 			<ul class="currencyBox">
 				<li id="header_currancy" class="currency"><a
@@ -86,9 +83,8 @@
 				</div>
 			</section>
 		</div>
-
 		<h1 class="logo">
-			<a href="index.html" title="Logo"> <img title="Logo" alt="Logo"
+			<a href="index.jsp" title="Logo"> <img title="Logo" alt="Logo"
 				src="images/logo.jpg" />
 			</a>
 		</h1>

@@ -1,5 +1,5 @@
 <%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8" isELIgnored="false"%>
-<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +33,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12">
-						<a href="#newUserModal" data-toggle="modal" class="btn pull-right">添加管理员</a>
+						<a href="#22" data-toggle="modal" class="btn pull-right">添加管理员</a>
 						<h4 class="header">管理员列表</h4>
 						<table class="table table-striped sortable">
 							<thead>
@@ -45,12 +45,11 @@
 								</tr>
 							</thead>
 							<tbody>
-							   <c:forEach items="${admins}" var="admin">
+							<c:forEach items="${admins }" var="admin">
 								<tr>
-									<td>${admin.id}</td>
+									<td>${admin.id }</td>
 									<td>${admin.name }</td>
 									<td>${admin.password }</td>
-									<%-- <td>${admin.password}</td> --%>
 									
 									<td>
 										<div class="btn-group">
@@ -65,7 +64,7 @@
 										</div>
 									</td>
 								</tr>
-								</c:forEach>
+							</c:forEach>
 							</tbody>
 						</table>
 						<div class="pagination pagination-centered">

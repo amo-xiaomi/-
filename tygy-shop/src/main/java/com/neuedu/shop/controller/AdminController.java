@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.neuedu.shop.pojo.Admin;
 import com.neuedu.shop.service.AdminService;
 
-
 @Controller
 public class AdminController {
 	@Autowired
@@ -19,7 +18,7 @@ public class AdminController {
 	@RequestMapping("/back/findAll.admin")
 	public String findAll(ModelMap map) {
 		List <Admin> admins=service.findAll();
-		System.out.println(admins);
+		
 		//将查询到的结果绑定到map对象当中
 		map.addAttribute("admins",admins);
 		//告诉controller层要将结果交给哪个页面显示

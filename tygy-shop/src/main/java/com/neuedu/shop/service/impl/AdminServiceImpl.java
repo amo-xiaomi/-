@@ -13,15 +13,16 @@ import com.neuedu.shop.service.AdminService;
 @Service
 @Transactional
 public class AdminServiceImpl implements AdminService {
-	/**
-	 * 持有持久层接口对象
-	 */
-		
-		@Autowired //自动注入dependecy injection
-		private AdminMapper mapper;
-		@Override
-		public List<Admin> findAll() {
-			// TODO Auto-generated method stub
-			return mapper.findAll();
-		}
+/**
+ * 持有持久层接口对象
+ */
+	
+	@Autowired //自动注入dependecy injection
+	private AdminMapper mapper;
+	@Override
+	public List<Admin> findAll() {
+		// TODO Auto-generated method stub
+		return mapper.findAll();
+	}
+
 }

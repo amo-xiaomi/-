@@ -1,5 +1,6 @@
-<%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8" isELIgnored="false"%>
-<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8"
+	isELIgnored="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,11 +26,11 @@
 <script src="js/gcal.js"></script>
 <script src="js/setup.js"></script>
 <script>
-	function logout(){
-		if(confirm('确认要注销么？')){
-			if(confirm('注销成功！')){
-				window.location.href="login.html";
-			}else{
+	function logout() {
+		if (confirm('确认要注销么？')) {
+			if (confirm('注销成功！')) {
+				window.location.href = "login.html";
+			} else {
 				alert('请三思');
 			}
 		}
@@ -39,8 +40,7 @@
 </head>
 <body>
 
-	<!-- header -->
-		<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 
 	<div class="page">
 		<div class="page-container">
@@ -81,10 +81,9 @@
 										class="label label-inverse pull-right">2 </span>类别管理</a></li>
 								<li id="bookmarks" class="collapse">
 									<ul>
-										<li><a href="add_category_root.html"> <i
+										<li><a href="category_addroot.jsp"> <i
 												class="pull-right icon-plane"></i>添加根类别
-										</a><a href="findAll.category"> <i
-												class="pull-right icon-fire"></i>类别列表
+										</a><a href="findAll.category"> <i class="pull-right icon-fire"></i>类别列表
 										</a></li>
 									</ul>
 								</li>
@@ -98,10 +97,11 @@
 									<ul>
 										<li><a href="products.html"> <i
 												class="pull-right icon-cog"></i>商品列表
-										</a><a href="add_product.html"> <i class="pull-right icon-fire"></i>添加商品
-										</a>
-										<a href="search_product_complex.html"> <i class="pull-right icon-cog"></i>商品搜索（复杂）</a>
-										</li>
+										</a><a href="add_product.html"> <i
+												class="pull-right icon-fire"></i>添加商品
+										</a> <a href="search_product_complex.html"> <i
+												class="pull-right icon-cog"></i>商品搜索（复杂）
+										</a></li>
 									</ul>
 								</li>
 								<!-- 订单管理  -->
@@ -113,9 +113,9 @@
 									<ul>
 										<li><a href="orders.html"> <i
 												class="pull-right icon-cog"></i>查看订单
-										</a>
-										<a href="search_order_complex.html"> <i class="pull-right icon-cog"></i>订单搜索（复杂）</a>
-										</li>
+										</a> <a href="search_order_complex.html"> <i
+												class="pull-right icon-cog"></i>订单搜索（复杂）
+										</a></li>
 									</ul>
 								</li>
 							</ul>

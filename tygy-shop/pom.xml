@@ -7,9 +7,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>tygy-shop Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  
-<!-- 项目中的所有依赖jar文件  -->
-  <properties>
+  <!--项目中的所有依赖jar文件  -->
+<properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -195,4 +194,3 @@
     </plugins>
   </build>
 </project>
-  

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
 <mapper namespace="com.neuedu.shop.mapper.UserMapper">
 	<!--findAll方法的实现  
 		id:接口的方法名
@@ -18,23 +19,17 @@
 		<result column="user_phone" property="phone"/>
 		<result column="user_addr" property="addr"/>
 		<result column="user_register_date" property="rdate"/>
-	
 	</resultMap>
-	 <!-- 添加的实现 -->
-	 <insert id="insert" parameterType="User">
-	 
-	     insert into t_user values(null,#{name},md5(#{password}),#{phone},#{addr},now())
-	 
-	 </insert>
-	 <!--删除的实现 -->
-	 <delete id="delete" parameterType="int">
-	   delete from t_user where id=#{id}
-	 </delete>
-	 
-	 <!-- 重置用户密码 -->
-	 <update id="resetPassword" parameterType="int">
-	      update t_user set user_password=md5('000000') where id=#{id}
-
-
-	 </update>
+	<!-- 添加的实现 -->
+	<insert id="insert" parameterType="User">
+	insert into t_user values(null,#{name},md5(#{password}),#{phone},#{addr},now())
+	</insert>
+	<!--删除的实现  -->
+	<delete id="delete" parameterType="int">
+		delete from t_user where id=#{id}
+	</delete>
+	<!-- 重置用戶密碼  -->
+	<update id="resetPassword" parameterType="int">
+		update t_user set user_password=md5("000000") where id=#{id}
+	</update>
 </mapper>

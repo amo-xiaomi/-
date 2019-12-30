@@ -1,8 +1,7 @@
 <%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8"
 	isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -48,8 +47,7 @@
 </head>
 <body>
 	<div class="mainContainer sixteen container">
-		<!--Header Block-->
-		<%@include file="header.jsp"%>
+		<%@include file="header.jsp" %>
 		<!--Content Block-->
 		<section class="content-wrapper">
 			<div class="content-container container">
@@ -70,21 +68,18 @@
 
 									</div>
 								</li>
-
-
 								<li class="fields">
 									<div class="customer-name">
 										<div class="input-box name-firstname">
-											<label for="phone">电话<em>*</em></label> <input
-												type="text" class="required-entry input-text" title="电话号码"
+											<label for="firstname">电话<em>*</em></label> <input
+												type="text" class="required-entry input-text" title="电话号"
 												placeholder="请输入电话号" name="phone" id="phone" required="required">
 										</div>
 										<div class="clear"></div>
 
 									</div>
 								</li>
-
-
+								
 								<li>
 
 									<div class="input-box">
@@ -126,7 +121,7 @@
 							<div class="buttons-set">
 								<p class="required">* 必填项</p>
 								<a href="account_login.html" title="返回" class="f-left">&laquo;
-									返回</a> <input type="submit" value="注册"  class="orange-btn"/><span><span>注册</span></span>
+									返回</a> <input type="submit" class="orange-btn" value="注册"/><span><span>注册</span></span></a>
 								<div class="clear"></div>
 							</div>
 						</div>
@@ -148,6 +143,6 @@
 			</div>
 		</section>
 	</div>
-	<%@include file="footer.jsp"%>
+	<%@include file="footer.jsp" %>
 </body>
 </html>

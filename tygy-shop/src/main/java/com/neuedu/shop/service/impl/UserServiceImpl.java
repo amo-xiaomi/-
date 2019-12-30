@@ -14,7 +14,7 @@ import com.neuedu.shop.service.UserService;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-	@Autowired
+	@Autowired // 自动注入dependecy injection
 	private UserMapper mapper;
 
 	@Override
@@ -25,23 +25,22 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void insert(User user) {
+		// TODO Auto-generated method stub
 		mapper.insert(user);
-		return;
-
+	
 	}
 
 	@Override
 	public void delete(Integer id) {
+		// TODO Auto-generated method stub
 		mapper.delete(id);
 		
 	}
 
 	@Override
 	public void resetPassword(Integer id) {
-
+		// TODO Auto-generated method stub
 		mapper.resetPassword(id);
-		
 	}
-
 
 }

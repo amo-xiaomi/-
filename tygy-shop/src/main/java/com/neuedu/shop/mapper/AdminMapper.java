@@ -8,9 +8,8 @@ import com.neuedu.shop.pojo.Admin;
 
 @Repository
 public interface AdminMapper {
-   /**
-    * *查询t_admin表中所有数据
-    */
-	List <Admin> findAll();
-	
+	/**
+	 * 查询t_admin 表中所有数据
+	 */
+	List<Admin>findAll();
 }

@@ -1,10 +1,10 @@
-<%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8" isELIgnored="false"%>
-<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!doctype html>
-
+<%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8"
+	isELIgnored="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="gbk">
 <title>电商平台首页</title>
 
 <!--js-->
@@ -47,8 +47,7 @@
 </head>
 <body>
 	<div class="mainContainer sixteen container">
-		<!--Header Block-->
-<%@include file="header.jsp" %>
+		<%@include file="header.jsp" %>
 		<!--Banner Block-->
 		<section class="banner-wrapper">
 			<div class="banner-block container">
