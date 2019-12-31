@@ -65,7 +65,8 @@
 					"<ul class='dropdown-menu'>" +
 					"<li>" +
 						"<a href='findById.category?id="+c.id+"'>添加子类别</a>" +
-						"<a href='#'>修改</a>" +
+						"<a href='findByIdToresetDescr.category?id="+c.id+"'>修改</a>" +
+						
 						"<a href='#'>删除</a>" +
 					"</li>" +
 				"</ul>" +

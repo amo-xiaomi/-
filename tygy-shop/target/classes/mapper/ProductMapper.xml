@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neuedu.shop.mapper.ProductMapper">
+	<!--连接查询 t_product 与 t_category 表 进行连接 -->
+	<select id="findAll" resultMap="findAll">
+		select
+		p.id,
+		product_name,
+		product_description,
+		product_normalprice,
+		product_memberprice,
+		product_imgpath,
+		product_date,
+		product_categoryid,
+		c.id,
+		c.category_name,
+		c.category_description,
+		c.category_parentid,
+		c.leaf,
+		c.grade
+		from t_product p JOIN t_category c on p.product_categoryid = c.id
+	</select>
+
+	<!--配置数据表中的字段名和Admin类中成员变量要一致 -->
+	<resultMap type="Product" id="findAll">
+		<id column="id" property="id" />
+		<result column="product_name" property="name" />
+		<result column="product_description" property="descr" />
+		<result column="product_normalprice" property="normalprice" />
+		<result column="product_memberprice" property="memberprice" />
+		<result column="product_imgpath" property="imgPath" />
+		<result column="product_date" property="pdate" />
+		<association property="category" javaType="Category">
+			<id column="id" property="id" />
+			<result column="category_name" property="name" />
+			<result column="category_description" property="descr" />
+			<result column="category_parentid" property="pid" />
+			<result column="leaf" property="leaf" />
+			<result column="grade" property="grade" />
+		</association>
+	</resultMap>
+	
+	<delete id="delete" parameterType="int">
+		delete from t_product where id=#{id}
+	</delete>
+</mapper>

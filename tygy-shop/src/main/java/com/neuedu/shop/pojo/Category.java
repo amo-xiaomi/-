@@ -30,5 +30,5 @@ public class Category implements Serializable {
 		this.pid = pid;
 		this.grade = grade;
 	}
-	
+	 
 }

@@ -77,11 +77,7 @@
 														if(confirm("你確定要刪除麽")){
 															if(confirm("你真的要刪除麽，刪了就沒了！"))
 																window.location.href="delete.user?id="+id;
-														}
-													}
-													function resetPassword(id){
-														if(confirm("你確定要修改密碼麽")){
-															window.location.href="resetPassword.user?id="+id;
+															}
 														}
 													}
 												</script>

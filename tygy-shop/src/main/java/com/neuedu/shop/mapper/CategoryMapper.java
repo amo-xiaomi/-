@@ -2,6 +2,9 @@ package com.neuedu.shop.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.neuedu.shop.pojo.Category;
@@ -30,4 +33,10 @@ public interface CategoryMapper {
 	void updateParent(int pid);
 	
 	Category findById(int id);
+	
+	@Update("update t_category set category_description=#{descr} where id=#{id}")
+	void resetDescr(@Param("id")int id,@Param("descr")String descr);
+	
+	@Select("select category_name from t_category where id=#{pid}")
+	String findParname(@Param("pid")int pid);
 }

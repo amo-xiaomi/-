@@ -70,4 +70,14 @@
 	<select id="findById" parameterType="int" resultMap="findAll">
 		<include refid="basesql"/> where id=#{id}
 	</select>
+	<!-- 重置用户密码 -->
+	<update id="resetDescription" parameterType="int">
+		update t_category set category_description=#{description} where id=#{id}
+	</update>
+	
 </mapper>
+
+
+
+
+

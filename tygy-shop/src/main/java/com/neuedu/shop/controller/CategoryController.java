@@ -54,4 +54,23 @@ public class CategoryController {
 		return "forward:category_addchild.jsp";
 		
 	}
+	
+	@RequestMapping("/back/findByIdToresetDescr.category")
+	public String findByIdToresetDescr(int id,ModelMap map) {
+		Category c=service.findById(id);
+		map.addAttribute("c",c);
+		String pname=service.findParname(c.getPid());
+		map.addAttribute("pname", pname);
+		return "forward:category_resetdescr.jsp";
+	}
+	@RequestMapping("/back/resetDescr.category")
+	public String resetDescr(int id,String descr) {
+		service.resetDescr(id,descr);
+		return "redirect:category_list.jsp";
+	}
+	
 }
+
+
+
+

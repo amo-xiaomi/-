@@ -51,6 +51,18 @@ public class CategoryServiceImpl implements CategoryService {
 		return mapper.findById(id);
 	}
 
+	@Override
+	public void resetDescr(int id,String descr) {
+		mapper.resetDescr(id, descr);
+	}
+
+	@Override
+	public String findParname(int pid) {
+		// TODO Auto-generated method stub
+		return mapper.findParname(pid);
+	}
+
+
 	
 
 }
