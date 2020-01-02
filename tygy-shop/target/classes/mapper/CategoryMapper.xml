@@ -53,9 +53,9 @@
 	</select>
 	
 	<!--查询父级别的grade值  -->
-	<select id="findByParentId" parameterType="int" resultType="int">
+<!-- 	<select id="findByParentId" parameterType="int" resultType="int">
 		select grade from t_category where id=#{pid}
-	</select>	
+	</select>	 -->
 	<!--添加子类别  -->
 	
 	<insert id="addChildCategory" parameterType="Category" >
@@ -70,14 +70,13 @@
 	<select id="findById" parameterType="int" resultMap="findAll">
 		<include refid="basesql"/> where id=#{id}
 	</select>
-	<!-- 重置用户密码 -->
-	<update id="resetDescription" parameterType="int">
-		update t_category set category_description=#{description} where id=#{id}
-	</update>
 	
+	<!--修改类别描述  -->
+	<!-- <update id="resetDescr" parameterType="int">
+		update t_category set category_description=#{} where id=#{id,jdbcType=INT}
+	</update> -->
+	
+	<select id="findGrade" resultMap="findToTree">
+		select id,category_name from t_category where grade=3
+	</select>
 </mapper>
-
-
-
-
-

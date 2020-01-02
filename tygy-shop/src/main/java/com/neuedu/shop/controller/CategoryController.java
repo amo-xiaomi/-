@@ -69,6 +69,11 @@ public class CategoryController {
 		return "redirect:category_list.jsp";
 	}
 	
+	@ResponseBody
+	@RequestMapping("/back/findGrade.category")
+	public List<Category> findGrade() {
+		return service.findGrade();
+	}
 }
 
 

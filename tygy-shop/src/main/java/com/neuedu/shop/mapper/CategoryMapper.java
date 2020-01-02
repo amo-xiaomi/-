@@ -39,4 +39,6 @@ public interface CategoryMapper {
 	
 	@Select("select category_name from t_category where id=#{pid}")
 	String findParname(@Param("pid")int pid);
+	
+	List<Category> findGrade();
 }

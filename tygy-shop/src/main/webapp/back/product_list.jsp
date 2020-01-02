@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
+<meta charset="gbk" />
 
 <title>电商平台后台管理</title>
 <link rel="stylesheet" href="css/bootstrap.css" />
@@ -24,6 +24,32 @@
 <script src="js/fullcalendar.min.js"></script>
 <script src="js/gcal.js"></script>
 <script src="js/setup.js"></script>
+<script type="text/javascript">
+	function price(){
+		var np=$("#np");
+		if(/\D/.test(np.val())){
+			alert("请您输入正确的数值！");
+		}
+		else
+		$("#mp").val(Math.round(np.val()*0.8*100.0)/100.0);
+	}
+</script>
+<script>
+	$(function(){
+		$.ajax({
+			url:"findGrade.category",
+			dataType:"json",
+			success:function(categories){
+				for(let i in categories){
+					let c=categories[i];
+					
+					$("<option value='"+c.id+"'> "+c.name+"</option>").appendTo("#findGrade");
+					
+				}
+			}
+		});
+	});
+	</script>
 </head>
 <body>
 	<%@include file="header.jsp"%>
@@ -48,6 +74,7 @@
 									<th>普通价格</th>
 									<th>会员价格</th>
 									<th>上架日期</th>
+									<th>商品图片</th>
 									<th>所属类别</th>
 								</tr>
 							</thead>
@@ -60,6 +87,7 @@
 										<td>${p.normalprice}</td>
 										<td>${p.memberprice }</td>
 										<td>${p.pdate }</td>
+										<td>${p.imgPath}</td>
 										<td>${p.category.name }</td>
 										<td>
 											<div class="btn-group">
@@ -68,7 +96,7 @@
 													<span class="caret"></span>
 												</button>
 												<ul class="dropdown-menu">
-													<li><a href="#">修改</a> <a href="javascript:;" onclick="deleteProduct(${p.id })">删除</a></li>
+													<li><a href="findByIdToReser.product?id=${p.id }">修改</a> <a href="javascript:;" onclick="deleteProduct(${p.id })">删除</a></li>
 												</ul>
 												<script type="text/javascript">
 												function deleteProduct(id){
@@ -78,97 +106,93 @@
 													}
 												}
 												</script>
-											</div>
-										</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-						<div class="pagination pagination-centered">
-							<ul>
-								<li class="disabled"><a href="#">&laquo;</a></li>
-								<li class="active"><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&raquo;</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="newUserModal" class="modal hide fade">
-				<div class="modal-header">
-					<button type="button" data-dismiss="modal" aria-hidden="true"
-						class="close">&times;</button>
-					<h3>添加新商品</h3>
-				</div>
-				<div class="modal-body">
-					<form class="form-horizontal" action="add_product_do.jsp"
-						method="post">
-						<div class="control-group">
-							<label for="inputEmail" class="control-label">商品名称</label>
-							<div class="controls">
-								<input id="inputEmail" name="name" type="text"
-									placeholder="请输入商品名称" />
-							</div>
-						</div>
-						<div class="control-group">
-							<label for="inputCurrentPassword" class="control-label">商品描述
-							</label>
-							<div class="controls">
-								<input id="inputCurrentPassword" name="descr" type="text"
-									placeholder="请输入商品描述" />
-							</div>
-						</div>
-						<div class="control-group">
-							<label for="inputCurrentPassword" class="control-label">普通价格
-							</label>
-							<div class="controls">
-								<input id="normalprice" name="normalprice" type="text"
-									placeholder="普通价格" onblur="calMemberPrice()" />
-							</div>
-						</div>
-						<div class="control-group">
-							<label for="inputCurrentPassword" class="control-label">会员价格
-							</label>
-							<div class="controls">
-								<input id="memberprice" type="text" placeholder="会员价格" />
-							</div>
-						</div>
-						<div class="control-group">
-							<label for="inputCurrentPassword" class="control-label">商品类别
-							</label>
-							<div class="controls">
-								<select name="categoryid">
-
-									<option value="1">电子产品</option>
-									<option value="2">食品</option>
-									<option value="3">服装</option>
-								</select>
-							</div>
-
-						</div>
-						<div class="modal-footer">
-							<a href="#" data-dismiss="modal" class="btn">关闭</a><input
-								type="submit" class="btn btn-primary" value="添加商品" />
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
+</div>
+</td>
+</tr>
+</c:forEach>
+</tbody>
+</table>
+<div class="pagination pagination-centered">
+	<ul>
+		<li class="disabled"><a href="#">&laquo;</a></li>
+		<li class="active"><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#">&raquo;</a></li>
+	</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="newUserModal" class="modal hide fade">
+	<div class="modal-header">
+		<button type="button" data-dismiss="modal" aria-hidden="true"
+			class="close">&times;</button>
+		<h3>添加新商品</h3>
 	</div>
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="span12">
-					<p class="pull-right">版权所有&nbsp;&nbsp;&nbsp;可以翻版</p>
-					<p>&copy; Copyright 2018 Somnus</p>
+	<div class="modal-body">
+		<form class="form-horizontal" action="add_product_do.jsp"
+			method="post">
+			<div class="control-group">
+				<label for="inputEmail" class="control-label">商品名称</label>
+				<div class="controls">
+					<input id="inputEmail" name="name" type="text"
+						placeholder="请输入商品名称" />
 				</div>
 			</div>
-		</div>
-	</footer>
+			<div class="control-group">
+				<label for="inputCurrentPassword" class="control-label">商品描述
+				</label>
+				<div class="controls">
+					<input id="inputCurrentPassword" name="descr" type="text"
+						placeholder="请输入商品描述" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="inputCurrentPassword" class="control-label">普通价格
+				</label>
+				<div class="controls">
+					<input id="np" name="np" type="text" placeholder="普通价格"
+						onblur="calMemberPrice()" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="inputCurrentPassword" class="control-label">会员价格
+				</label>
+				<div class="controls">
+					<input id="mp" type="text" name="mp" placeholder="会员价格" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="inputCurrentPassword" class="control-label">商品图片
+				</label>
+				<div class="controls">
+					<input id="img" type="file" placeholder="商品图片" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="inputCurrentPassword" class="control-label">商品类别
+				</label>
+				<div class="controls">
+					<select id="findGrade" name="categoryid">
+
+
+					</select>
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<a href="#" data-dismiss="modal" class="btn">关闭</a><input
+					type="submit" class="btn btn-primary" value="添加商品" />
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+</div>
+<%@include file="footer.jsp"%>
 </body>
 <script src="js/d3-setup.js"></script>
 <script>

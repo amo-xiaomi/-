@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.neuedu.shop.mapper.CategoryMapper;
 import com.neuedu.shop.pojo.Category;
 import com.neuedu.shop.service.CategoryService;
-//t
+
 @Service
 @Transactional
 public class CategoryServiceImpl implements CategoryService {
@@ -19,26 +19,23 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public List<Category> findAll() {
-		// TODO Auto-generated method stub
 		return mapper.findAll();
 	}
 
 	@Override
 	public void addRootCategory(String name, String descr) {
-		// TODO Auto-generated method stub
 		mapper.addRootCategory(name, descr);
 	}
 
 	@Override
 	public List<Category> findToTree() {
-		// TODO Auto-generated method stub
 		return mapper.findToTree();
 	}
 
 	@Override
-	public void addChildCategory(String name,String descr,int pid) {
+	public void addChildCategory(String name,String descr,int pid,int grade) {
 		//查父级别的grade
-		int grade = mapper.findByParentId(pid);
+		//int grade = mapper.findByParentId(pid);
 		//添加操作
 		mapper.addChildCategory(new Category(name,descr,pid,grade+1));
 		//更新父节点
@@ -47,7 +44,6 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public Category findById(int id) {
-		// TODO Auto-generated method stub
 		return mapper.findById(id);
 	}
 
@@ -62,7 +58,10 @@ public class CategoryServiceImpl implements CategoryService {
 		return mapper.findParname(pid);
 	}
 
-
-	
+	@Override
+	public List<Category> findGrade() {
+		// TODO Auto-generated method stub
+		return mapper.findGrade();
+	}
 
 }

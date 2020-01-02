@@ -5,7 +5,7 @@
 
 <mapper namespace="com.neuedu.shop.mapper.ProductMapper">
 	<!--连接查询 t_product 与 t_category 表 进行连接 -->
-	<select id="findAll" resultMap="findAll">
+	<sql id="basesql">
 		select
 		p.id,
 		product_name,
@@ -22,6 +22,10 @@
 		c.leaf,
 		c.grade
 		from t_product p JOIN t_category c on p.product_categoryid = c.id
+	</sql>
+		
+	<select id="findAll" resultMap="findAll">
+		<include refid="basesql"/>
 	</select>
 
 	<!--配置数据表中的字段名和Admin类中成员变量要一致 -->
@@ -46,4 +50,10 @@
 	<delete id="delete" parameterType="int">
 		delete from t_product where id=#{id}
 	</delete>
+	
+	<select id="findById" parameterType="int" resultMap="findAll">
+		<include refid="basesql"/>where p.id=#{id}
+	</select>
+	
+
 </mapper>

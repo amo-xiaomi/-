@@ -27,5 +27,15 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		mapper.delete(id);
 	}
+	@Override
+	public void reset(int id, String name, String descr, Double np,Double mp,int cid) {
+		// TODO Auto-generated method stub
+		mapper.reset(id, name, descr, np,mp,cid);
+	}
+	@Override
+	public Product findById(int id) {
+		// TODO Auto-generated method stub
+		return mapper.findById(id);
+	}
 
 }

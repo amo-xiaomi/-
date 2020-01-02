@@ -3,14 +3,12 @@ package com.neuedu.shop.service;
 import java.util.List;
 
 import com.neuedu.shop.pojo.Category;
+import com.neuedu.shop.pojo.Product;
 
 public interface CategoryService {
 	List<Category>findAll();
-	
 	void addRootCategory(String name,String descr);
-	
 	List<Category> findToTree();
-	
 	void addChildCategory(String name,String descr,int pid);
 	
 	Category findById(int id);
@@ -18,4 +16,6 @@ public interface CategoryService {
 	void resetDescr(int id,String descr);
 	
 	String findParname(int pid);
+	
+	List<Category> findGrade();
 }
