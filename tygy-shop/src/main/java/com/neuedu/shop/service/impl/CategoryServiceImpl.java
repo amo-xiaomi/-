@@ -64,4 +64,10 @@ public class CategoryServiceImpl implements CategoryService {
 		return mapper.findGrade();
 	}
 
+	@Override
+	public void addChildCategory(String name, String descr, int pid) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

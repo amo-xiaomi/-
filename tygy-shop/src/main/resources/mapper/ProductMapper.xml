@@ -54,6 +54,14 @@
 	<select id="findById" parameterType="int" resultMap="findAll">
 		<include refid="basesql"/>where p.id=#{id}
 	</select>
+	<insert id="insert" parameterType="Product">
+		insert into t_product values(null,#{name},#{descr},#{normalprice},#{memberprice},#{imgPath},now(),#{categoryid});
+	</insert>
+	<!--商品模糊搜索  -->
+	<select id="findByKeywords" parameterType="string" resultMap="findAll">
+	     <include refid="basesql"/> where p.product_name like concat('%',#{keywords},'%')
+	     or p.product_description like concat('%',#{keywords},'%')
+	</select>
 	
 
 </mapper>

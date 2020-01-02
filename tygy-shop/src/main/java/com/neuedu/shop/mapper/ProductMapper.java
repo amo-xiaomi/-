@@ -17,5 +17,8 @@ public interface ProductMapper {
 	void reset(@Param("id")int id,@Param("name")String name,@Param("descr")String descr,@Param("np")Double nprice,@Param("mp")Double mp,@Param("cid")int cid);
 	
 	Product findById(int id);
+	void insert(Product p);
+	
+	List<Product> findByKeywords(String keywords);
 	
 }

@@ -49,10 +49,10 @@
 	});
 	</script>
 <style type="text/css">
-	#search{
-		position:relative;
-		top:-5px;
-	}
+#search{
+	position:relative;
+	top:-5px;
+}
 </style>
 </head>
 <body>
@@ -64,10 +64,10 @@
 					<div class="span12">
 						<a href="#newUserModal" data-toggle="modal" class="btn pull-right">添加新商品</a>
 						<h4 class="header">商品列表</h4>
-						<form action="findByKeywords.product" method="post">
+						<form action="search_product_simple_complete.html" method="post">
 							<input type="text" name="keywords" class="form-control"
 								placeholder="请输入搜索关键字">&nbsp; <input
-								class="btn btn-info" type="submit" value="搜索" id="search" >
+								class="btn btn-info" type="submit" value="搜索" id="search">
 						</form>
 						<table class="table table-striped sortable">
 							<thead>
